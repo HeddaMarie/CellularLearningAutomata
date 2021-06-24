@@ -19,7 +19,7 @@ class Environment:
         live = 0
         dead = 0
 
-        #count the living and dead cells in a loop and stor them.
+        #count the living and dead cells in a loop and store them.
         for i in state:
             if i == 1:
                 live += 1
@@ -27,7 +27,7 @@ class Environment:
                 dead += 1
 
         livepercentage = (live / len(state))
-        deadpercentage = (dead / len(state)) #in case we had any use for it.
+        deadpercentage = (dead / len(state)) # in case we had any use for it.
 
         total = live + dead
 

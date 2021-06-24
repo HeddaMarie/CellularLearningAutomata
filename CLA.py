@@ -26,14 +26,12 @@ class CLA:
         self.binary_rules = format(self.rule, '08b')
         # self.results = open('results.txt', 'a')
         self.iterations = iterations
-        self.La_list = self.createLA()  # Must be before generations. #noobtip
-        self.environments = self.createENV()  # must be after la_list. #noobtip
+        self.La_list = self.createLA()
+        self.environments = self.createENV()
         self.generations = np.array(self.run_num_iterations(state, iterations))
 
 
-    # passing the neighbourhood into the LA, activates the LA and environments.
-    # evaluates the CA based on the current state in the LA with the corresponding neighbourhood config.
-    #
+
     def prepare_csv(self, resultline):
         experimentnr = self.experimentnr
         name = self.experimentname
@@ -87,7 +85,7 @@ class CLA:
             list_of_la.append(TA)
         return list_of_la
 
-    # Creates a list of enviroments. Stores them in the self.environment list if needed.
+    # Creates a list of environments. Stores them in the self.environment list if needed.
     def createENV(self):
         liste = self.La_list
         envlist = []
@@ -237,7 +235,6 @@ class CLA:
 
 
     # This runs the entire class, and calls every other method needed to run.
-    # It is easiest to instansiate the class then run CLA.generations, this provides all the returns.
     #headers = "LA.state ,CA.state, Env probability, LA rewards, LA punishments, T(Iteration)"
 
     def run_num_iterations(self, state, iterations):
